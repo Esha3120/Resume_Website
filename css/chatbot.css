@@ -1,0 +1,148 @@
+/* Chatbot Container */
+#chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+/* Chatbot Toggle Button */
+#chatbot-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+  position: relative;
+  box-shadow: 0 0 10px 2px #bd5d38;
+  transition: box-shadow 0.5s;
+}
+#chatbot-button:hover {
+  box-shadow: 0 0 20px 5px #974a2d;
+}
+
+/* Notification Red Dot */
+#notification-dot {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 12px;
+  height: 12px;
+  background-color: red;
+  border-radius: 50%;
+  display: none;
+}
+
+/* Bounce Animation for Button */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Chatbox Panel */
+#chatbox {
+  display: none;
+  width: 320px;
+  background: rgba(34, 34, 34, 0.95);
+  color: white;
+  border: 1px solid #555;
+  border-radius: 20px;
+  margin-top: 10px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.4s ease-in-out;
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Chat Message Area */
+#chatlog {
+  height: 280px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* User Message Style */
+.chat-user {
+  align-self: flex-end;
+  background: #bd5d38; /* your theme orange */
+  color: white;
+  padding: 8px 12px;
+  border-radius: 12px;
+  margin: 8px 0;
+  max-width: 80%;
+}
+
+/* Assistant (Bot) Message Style */
+.chat-assistant {
+  align-self: flex-start;
+  background: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 12px;
+  margin: 8px 0;
+  max-width: 80%;
+}
+
+/* Bot Avatar */
+.chat-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* Chat Options (Buttons) */
+button.chat-option {
+  margin: 5px 0;
+  width: 100%;
+  background: linear-gradient(135deg, #bd5d38, #974a2d);
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+button.chat-option:hover {
+  background: linear-gradient(135deg, #974a2d, #7e3e24);
+  transform: translateY(-2px);
+}
+
+/* Typing Animation Area */
+#typing {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Typing Dots Animation */
+#typing span {
+  animation: blink 1.4s infinite;
+  animation-delay: calc(0.2s * var(--i));
+  opacity: 0;
+}
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Responsive for Mobiles */
+@media screen and (max-width: 768px) {
+  #chatbox {
+      width: 85%;
+      right: 7%;
+      left: 7%;
+  }
+}
